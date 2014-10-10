@@ -1,0 +1,18 @@
+html, body {
+  height: auto;
+  height: 100%;
+  font-family: Helvetica, arial, sans;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.container h1 {
+  margin: auto;
+  font-size: 5em;
+  line-height: 1.4;
+  text-align: center;
+  max-width: 80%;
+}

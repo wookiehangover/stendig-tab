@@ -1,0 +1,12 @@
+{
+  "name": "oblique-tab",
+  "version": "0.0.1",
+  "dependencies": {
+    "browserify": "^6.0.3",
+    "oblique-strategies": "^1.0.1",
+    "watchify": "^2.0.0"
+  },
+  "scripts": {
+    "watch-js": "watchify assets/js/main.js -o ext/js/main.js"
+  }
+}
