@@ -1,0 +1,32 @@
+// controls
+.container h1 {
+  margin: auto;
+  font-size: 5em;
+  line-height: 1.4;
+  text-align: center;
+  max-width: 80%;
+}
+
+.controls {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+}
+
+.controls a {
+  display: inline-block;
+  margin: 1em;
+
+  &:hover {
+    .color-icons(#111);
+  }
+}
+
+body.dark .controls a {
+  .color-icons(#888);
+
+  &:hover {
+    .color-icons(#eaeaea);
+  }
+}
+
