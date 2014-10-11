@@ -3,3 +3,6 @@ assets/less/bootstrap
 .tmp
 .env
 .DS_Store
+ext.crx
+ext.pem
+ext.zip

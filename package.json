@@ -1,6 +1,6 @@
 {
   "name": "oblique-tab",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "dependencies": {
     "browserify": "^6.0.3",
     "gulp": "^3.8.8",

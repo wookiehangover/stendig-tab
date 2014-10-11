@@ -29,6 +29,9 @@ body {
   margin: 0;
   line-height: 1.5;
 }
+body.ready {
+  transition: background 400ms ease-in-out;
+}
 body.dark {
   background: #101010;
   color: #eaeaea;
@@ -78,13 +81,17 @@ body.dark .controls a:hover .svg-icon circle {
   stroke: #eaeaea;
 }
 .about-modal {
-  display: none;
   position: absolute;
+  display: flex;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-100%);
+}
+body.dark .about-modal {
+  background: rgba(0, 0, 0, 0.75);
 }
 .about-modal .inner {
   margin: auto;
@@ -93,6 +100,8 @@ body.dark .controls a:hover .svg-icon circle {
   border: 1px solid #111;
   color: #111;
   width: 400px;
+  opacity: 0;
+  transition: opacity 400ms ease-out 60ms;
 }
 .about-modal .inner p {
   margin-bottom: 0;
@@ -111,7 +120,10 @@ body.dark .controls a:hover .svg-icon circle {
   font-size: 0.625em;
 }
 body.show-about .about-modal {
-  display: flex;
+  transform: translateY(0);
+}
+body.show-about .about-modal .inner {
+  opacity: 1;
 }
 body.show-about .container {
   -webkit-filter: blur(2px);

@@ -2,13 +2,6 @@
 var ob = require('oblique-strategies');
 var version = require('../../ext/manifest.json').version;
 
-var getTheme = new Promise(function(resolve, reject) {
-  chrome.storage.sync.get('theme', function(item) {
-    resolve(item.theme);
-  });
-  setTimeout(reject, 3000);
-});
-
 function renderCard() {
   var card = ob.draw();
   var elem = document.getElementById('strategy');
@@ -28,11 +21,17 @@ function handleThemeClick() {
 }
 
 function handleAboutClick() {
+  var body = document.body;
   var elem = document.querySelector('.controls .about');
   elem.addEventListener('click', function(e) {
     e.preventDefault();
-    var body = document.body;
     body.classList.toggle('show-about');
+  });
+
+  document.body.addEventListener('keyup', function(e) {
+    if (e.keyCode === 27) {
+      body.classList.remove('show-about');
+    }
   });
 }
 
@@ -41,12 +40,23 @@ function updateVersion() {
   elem.innerText = 'v' + version;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  getTheme.then(function(theme) {
-    if (theme === 'dark') {
-      document.body.classList.toggle('dark');
-    }
+var getTheme = new Promise(function(resolve, reject) {
+  chrome.storage.sync.get('theme', function(item) {
+    resolve(item.theme);
   });
+  setTimeout(reject, 3000);
+});
+
+getTheme.then(function(theme) {
+  if (theme === 'dark') {
+    document.body.classList.toggle('dark');
+  }
+  setTimeout(function() {
+    document.body.classList.add('ready');
+  }, 1000);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
   renderCard();
   updateVersion();
   handleThemeClick();
@@ -54,12 +64,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 },{"../../ext/manifest.json":"/Users/sam/dev/repos/oblique-tab/ext/manifest.json","oblique-strategies":"/Users/sam/dev/repos/oblique-tab/node_modules/oblique-strategies/index.js"}],"/Users/sam/dev/repos/oblique-tab/ext/manifest.json":[function(require,module,exports){
-module.exports=module.exports=module.exports=module.exports=module.exports=module.exports={
-  "name": "Oblique Tab",
+module.exports=module.exports={
+  "name": "Oblique Strategies Tab",
   "version": "1.0.0",
   "manifest_version": 2,
-  "description": "This extension was created with the awesome extensionizr.com",
-  "homepage_url": "http://extensionizr.com",
+  "description": "A tab replacement based on Oblique Strategies by Brian Eno and Peter Schmidt",
+  "homepage_url": "https://github.com/wookiehangover/oblique-tab",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
