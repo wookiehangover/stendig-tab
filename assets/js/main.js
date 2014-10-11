@@ -1,13 +1,6 @@
 var ob = require('oblique-strategies');
 var version = require('../../ext/manifest.json').version;
 
-var getTheme = new Promise(function(resolve, reject) {
-  chrome.storage.sync.get('theme', function(item) {
-    resolve(item.theme);
-  });
-  setTimeout(reject, 3000);
-});
-
 function renderCard() {
   var card = ob.draw();
   var elem = document.getElementById('strategy');
@@ -27,11 +20,17 @@ function handleThemeClick() {
 }
 
 function handleAboutClick() {
+  var body = document.body;
   var elem = document.querySelector('.controls .about');
   elem.addEventListener('click', function(e) {
     e.preventDefault();
-    var body = document.body;
     body.classList.toggle('show-about');
+  });
+
+  document.body.addEventListener('keyup', function(e) {
+    if (e.keyCode === 27) {
+      body.classList.remove('show-about');
+    }
   });
 }
 
@@ -40,12 +39,23 @@ function updateVersion() {
   elem.innerText = 'v' + version;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  getTheme.then(function(theme) {
-    if (theme === 'dark') {
-      document.body.classList.toggle('dark');
-    }
+var getTheme = new Promise(function(resolve, reject) {
+  chrome.storage.sync.get('theme', function(item) {
+    resolve(item.theme);
   });
+  setTimeout(reject, 3000);
+});
+
+getTheme.then(function(theme) {
+  if (theme === 'dark') {
+    document.body.classList.toggle('dark');
+  }
+  setTimeout(function() {
+    document.body.classList.add('ready');
+  }, 1000);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
   renderCard();
   updateVersion();
   handleThemeClick();
