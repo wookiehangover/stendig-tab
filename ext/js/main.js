@@ -1,13 +1,79 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/sam/dev/repos/oblique-tab/assets/js/main.js":[function(require,module,exports){
 var ob = require('oblique-strategies');
-var card = ob.draw();
+var version = require('../../ext/manifest.json').version;
 
-document.addEventListener('DOMContentLoaded', function() {
-  var elem = document.getElementById('strategy');
-  elem.innerText = card;
+var getTheme = new Promise(function(resolve, reject) {
+  chrome.storage.sync.get('theme', function(item) {
+    resolve(item.theme);
+  });
+  setTimeout(reject, 3000);
 });
 
-},{"oblique-strategies":"/Users/sam/dev/repos/oblique-tab/node_modules/oblique-strategies/index.js"}],"/Users/sam/dev/repos/oblique-tab/node_modules/oblique-strategies/index.js":[function(require,module,exports){
+function renderCard() {
+  var card = ob.draw();
+  var elem = document.getElementById('strategy');
+  elem.innerText = String(card);
+}
+
+function handleThemeClick() {
+  var elem = document.querySelector('.controls .theme');
+  elem.addEventListener('click', function(e) {
+    e.preventDefault();
+    var body = document.body;
+    body.classList.toggle('dark');
+
+    var theme = body.classList.contains('dark') ? 'dark': 'light';
+    chrome.storage.sync.set({ theme: theme });
+  });
+}
+
+function handleAboutClick() {
+  var elem = document.querySelector('.controls .about');
+  elem.addEventListener('click', function(e) {
+    e.preventDefault();
+    var body = document.body;
+    body.classList.toggle('show-about');
+  });
+}
+
+function updateVersion() {
+  var elem = document.getElementById('ext-version');
+  elem.innerText = 'v' + version;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  getTheme.then(function(theme) {
+    if (theme === 'dark') {
+      document.body.classList.toggle('dark');
+    }
+  });
+  renderCard();
+  updateVersion();
+  handleThemeClick();
+  handleAboutClick();
+});
+
+},{"../../ext/manifest.json":"/Users/sam/dev/repos/oblique-tab/ext/manifest.json","oblique-strategies":"/Users/sam/dev/repos/oblique-tab/node_modules/oblique-strategies/index.js"}],"/Users/sam/dev/repos/oblique-tab/ext/manifest.json":[function(require,module,exports){
+module.exports=module.exports=module.exports=module.exports=module.exports=module.exports={
+  "name": "Oblique Tab",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "This extension was created with the awesome extensionizr.com",
+  "homepage_url": "http://extensionizr.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "src/newtab.html"
+  },
+  "permissions": [
+    "storage"
+  ]
+}
+
+},{}],"/Users/sam/dev/repos/oblique-tab/node_modules/oblique-strategies/index.js":[function(require,module,exports){
 var strategies =
 [
     '(Organic) machinery',

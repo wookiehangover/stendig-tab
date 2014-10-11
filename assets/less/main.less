@@ -1,0 +1,107 @@
+@import 'icons';
+
+html, body {
+  height: auto;
+  height: 100%;
+}
+
+body {
+  font-family: Helvetica, arial, sans;
+  margin: 0;
+  line-height: 1.5;
+}
+
+body.dark {
+  background: #101010;
+  color: #eaeaea;
+}
+
+// controls
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.container h1 {
+  margin: auto;
+  font-size: 5em;
+  line-height: 1.4;
+  text-align: center;
+  max-width: 80%;
+}
+
+.controls {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+}
+
+.controls a {
+  display: inline-block;
+  margin: 1em;
+
+  &:hover {
+    .color-icons(#111);
+  }
+}
+
+body.dark .controls a {
+  .color-icons(#888);
+
+  &:hover {
+    .color-icons(#eaeaea);
+  }
+}
+
+// about
+
+.about-modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(255,255,255,0.9);
+}
+
+.about-modal .inner {
+  margin: auto;
+  padding: 2em;
+  background: #fff;
+  border: 1px solid #111;
+  color: #111;
+  width: 400px;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.about-modal .inner a {
+  color: #111;
+
+  &:hover {
+    color: #666;
+  }
+}
+.about-modal .inner h2 small {
+  font-weight: normal;
+  font-size: 0.625em;
+}
+
+body.show-about {
+  .about-modal {
+    display: flex;
+  }
+
+  .container {
+    -webkit-filter: blur(2px);
+    filter: blur(1px);
+  }
+}

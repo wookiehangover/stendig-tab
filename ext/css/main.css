@@ -1,14 +1,42 @@
-html, body {
+.svg-icon {
+  width: 3em;
+  height: 3em;
+}
+.svg-icon circle,
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  transition: all 200ms ease-in;
+}
+.svg-icon circle {
+  stroke-width: 1;
+}
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #bababa;
+}
+.svg-icon circle {
+  stroke: #bababa;
+}
+html,
+body {
   height: auto;
   height: 100%;
-  font-family: Helvetica, arial, sans;
 }
-
+body {
+  font-family: Helvetica, arial, sans;
+  margin: 0;
+  line-height: 1.5;
+}
+body.dark {
+  background: #101010;
+  color: #eaeaea;
+}
 .container {
   display: flex;
   height: 100%;
 }
-
 .container h1 {
   margin: auto;
   font-size: 5em;
@@ -16,3 +44,78 @@ html, body {
   text-align: center;
   max-width: 80%;
 }
+.controls {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+}
+.controls a {
+  display: inline-block;
+  margin: 1em;
+}
+.controls a:hover .svg-icon path,
+.controls a:hover .svg-icon polygon,
+.controls a:hover .svg-icon rect {
+  fill: #111111;
+}
+.controls a:hover .svg-icon circle {
+  stroke: #111111;
+}
+body.dark .controls a .svg-icon path,
+body.dark .controls a .svg-icon polygon,
+body.dark .controls a .svg-icon rect {
+  fill: #888888;
+}
+body.dark .controls a .svg-icon circle {
+  stroke: #888888;
+}
+body.dark .controls a:hover .svg-icon path,
+body.dark .controls a:hover .svg-icon polygon,
+body.dark .controls a:hover .svg-icon rect {
+  fill: #eaeaea;
+}
+body.dark .controls a:hover .svg-icon circle {
+  stroke: #eaeaea;
+}
+.about-modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
+}
+.about-modal .inner {
+  margin: auto;
+  padding: 2em;
+  background: #fff;
+  border: 1px solid #111;
+  color: #111;
+  width: 400px;
+}
+.about-modal .inner p {
+  margin-bottom: 0;
+}
+.about-modal .inner h2 {
+  margin-top: 0;
+}
+.about-modal .inner a {
+  color: #111;
+}
+.about-modal .inner a:hover {
+  color: #666;
+}
+.about-modal .inner h2 small {
+  font-weight: normal;
+  font-size: 0.625em;
+}
+body.show-about .about-modal {
+  display: flex;
+}
+body.show-about .container {
+  -webkit-filter: blur(2px);
+  filter: blur(1px);
+}
+
+/*# sourceMappingURL=main.css.map */

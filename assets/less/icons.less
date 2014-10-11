@@ -1,0 +1,29 @@
+.svg-icon {
+  width: 3em;
+  height: 3em;
+
+  & circle,
+  & path,
+  & polygon,
+  & rect {
+    transition: all 200ms ease-in;
+  }
+}
+
+.svg-icon circle {
+  stroke-width: 1;
+}
+
+.color-icons(@color) {
+  .svg-icon path,
+  .svg-icon polygon,
+  .svg-icon rect {
+    fill: @color;
+  }
+
+  .svg-icon circle {
+    stroke: @color;
+  }
+}
+
+.color-icons(#bababa);

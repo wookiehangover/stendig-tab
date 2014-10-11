@@ -3,10 +3,13 @@
   "version": "0.0.1",
   "dependencies": {
     "browserify": "^6.0.3",
+    "gulp": "^3.8.8",
+    "gulp-less": "^1.3.6",
+    "gulp-sourcemaps": "^1.2.4",
     "oblique-strategies": "^1.0.1",
     "watchify": "^2.0.0"
   },
   "scripts": {
-    "watch-js": "watchify assets/js/main.js -o ext/js/main.js"
+    "watch-js": "watchify assets/js/main.js -o ext/js/main.js -v"
   }
 }
