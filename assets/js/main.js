@@ -1,6 +1,6 @@
 var version = require('../../ext/manifest.json').version;
-var Calendar = require('./calendar');
 var React = require('react');
+var Calendar = require('react-stendig-calendar');
 var moment = require('moment');
 
 function renderCalendar() {
