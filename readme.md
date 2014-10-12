@@ -1,8 +1,8 @@
-# Oblique Strategies Tab
+# Stendig Calendar Tab
 
-> A tab replacement based on Oblique Strategies by Brian Eno and Peter Schmidt.
+> A tab replacement based on the iconic Stendig Calendar
 
-Available for free in the [Google Chrome Webstore](https://chrome.google.com/webstore/detail/oblique-strategies-tab/mgmdhihgmkhangpfokjdhfhjaiadpopd).
+Available for free in the [Google Chrome Webstore](https://chrome.google.com/webstore/detail/stendig-calendar-tab/afdhlpappobhcghgnjgkgacfmnjgibga).
 
 ## Development
 
