@@ -1,0 +1,71 @@
+.stendig {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  width: 520px;
+  margin: auto;
+  position: relative;
+  padding-top: 88px;
+  top: -44px;
+}
+
+.stendig h2 {
+  position: absolute;
+  top: 0;
+  letter-spacing: -1px;
+}
+
+.stendig .year {
+  left: 288px;
+}
+
+.stendig .month {
+  left: 360px;
+}
+
+.stendig table {
+  width: 504px;
+
+  font-size: 56px;
+  border-spacing: 0;
+
+  thead {
+    vertical-align: top;
+  }
+
+  td {
+    width: 72px;
+    height: 44px;
+    line-height: 40px;
+    text-align: left;
+    border-left: 1px solid #000;
+    vertical-align: top;
+    letter-spacing: -5px;
+
+    &.minor {
+      letter-spacing: -3px;
+    }
+
+    &.major {
+      letter-spacing: -10px;
+    }
+
+    &.even-tighter {
+      letter-spacing: -13px;
+    }
+  }
+
+  &:hover td.today {
+    color: #7512ed;
+  }
+}
+
+
+body.dark .stendig {
+  table td {
+    border-color: #fff;
+  }
+
+  &:hover td.today {
+    color: #ed1278;
+  }
+}

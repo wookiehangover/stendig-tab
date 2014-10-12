@@ -129,5 +129,60 @@ body.show-about .container {
   -webkit-filter: blur(2px);
   filter: blur(1px);
 }
+.stendig {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  width: 520px;
+  margin: auto;
+  position: relative;
+  padding-top: 88px;
+  top: -44px;
+}
+.stendig h2 {
+  position: absolute;
+  top: 0;
+  letter-spacing: -1px;
+}
+.stendig .year {
+  left: 288px;
+}
+.stendig .month {
+  left: 360px;
+}
+.stendig table {
+  width: 504px;
+  font-size: 56px;
+  border-spacing: 0;
+}
+.stendig table thead {
+  vertical-align: top;
+}
+.stendig table td {
+  width: 72px;
+  height: 44px;
+  line-height: 40px;
+  text-align: left;
+  border-left: 1px solid #000;
+  vertical-align: top;
+  letter-spacing: -5px;
+}
+.stendig table td.minor {
+  letter-spacing: -3px;
+}
+.stendig table td.major {
+  letter-spacing: -10px;
+}
+.stendig table td.even-tighter {
+  letter-spacing: -13px;
+}
+.stendig table:hover td.today {
+  color: #7512ed;
+}
+body.dark .stendig table td {
+  border-color: #fff;
+}
+body.dark .stendig:hover td.today {
+  color: #ed1278;
+}
 
 /*# sourceMappingURL=main.css.map */

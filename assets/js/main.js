@@ -1,10 +1,17 @@
-var ob = require('oblique-strategies');
 var version = require('../../ext/manifest.json').version;
+var Calendar = require('./calendar');
+var React = require('react');
+var moment = require('moment');
 
-function renderCard() {
-  var card = ob.draw();
-  var elem = document.getElementById('strategy');
-  elem.innerText = String(card);
+function renderCalendar() {
+  React.renderComponent(
+    Calendar({}),
+    document.getElementById('calendar')
+  );
+}
+
+function setTitle() {
+  document.title = moment().format('M/D');
 }
 
 function handleThemeClick() {
@@ -56,7 +63,8 @@ getTheme.then(function(theme) {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  renderCard();
+  setTitle();
+  renderCalendar();
   updateVersion();
   handleThemeClick();
   handleAboutClick();

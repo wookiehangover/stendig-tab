@@ -1,15 +1,23 @@
 {
-  "name": "oblique-tab",
+  "name": "stendig-tab",
   "version": "1.0.0",
   "dependencies": {
     "browserify": "^6.0.3",
     "gulp": "^3.8.8",
     "gulp-less": "^1.3.6",
     "gulp-sourcemaps": "^1.2.4",
-    "oblique-strategies": "^1.0.1",
+    "lodash": "^2.4.1",
+    "moment": "^2.8.3",
+    "react": "^0.11.2",
+    "reactify": "^0.14.0",
     "watchify": "^2.0.0"
   },
   "scripts": {
     "watch-js": "watchify assets/js/main.js -o ext/js/main.js -v"
+  },
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
   }
 }
