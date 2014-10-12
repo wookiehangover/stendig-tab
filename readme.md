@@ -4,7 +4,7 @@
 
 Available for free in the [Google Chrome Webstore](https://chrome.google.com/webstore/detail/stendig-calendar-tab/afdhlpappobhcghgnjgkgacfmnjgibga).
 
-![Screenshot](https://i.cloudup.com/0YOphV85yt.png)
+![Screenshot](https://cldup.com/xPjvDgVFTd.png)
 
 ## Development
 
