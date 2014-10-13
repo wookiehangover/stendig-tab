@@ -172,6 +172,9 @@ body.show-about .container {
   top: 0;
   letter-spacing: -1px;
 }
+.gh-pages .stendig h2 {
+  font-size: 1.1em;
+}
 .stendig .year {
   left: 288px;
 }

@@ -12,7 +12,7 @@ function renderCalendar() {
 
 function setTitle() {
   var title = document.title;
-  document.title = moment().format('M/D') + '|' + title;
+  document.title = moment().format('M/D') + ' | ' + title;
 }
 
 function handleThemeClick() {

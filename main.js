@@ -13,7 +13,7 @@ function renderCalendar() {
 
 function setTitle() {
   var title = document.title;
-  document.title = moment().format('M/D') + '|' + title;
+  document.title = moment().format('M/D') + ' | ' + title;
 }
 
 function handleThemeClick() {
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
 },{"../../ext/manifest.json":2,"moment":5,"react":167,"react-stendig-calendar":6}],2:[function(require,module,exports){
 module.exports={
   "name": "Stendig Calendar Tab",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "manifest_version": 2,
   "description": "A tab replacement based on the iconic Stendig Calendar",
   "homepage_url": "https://github.com/wookiehangover/stendig-tab",
