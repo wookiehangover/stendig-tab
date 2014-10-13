@@ -135,6 +135,12 @@ body.show-about .container {
   -webkit-filter: blur(2px);
   filter: blur(1px);
 }
+@media (max-width: 660px) {
+  .about-modal .inner {
+    width: 100%;
+    font-size: 1.6em;
+  }
+}
 .stendig {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 900;
@@ -163,6 +169,21 @@ body.show-about .container {
 .stendig table thead {
   vertical-align: top;
 }
+.stendig table:hover td.today {
+  color: #7512ed;
+}
+.k3 {
+  letter-spacing: -3px;
+}
+.k5 {
+  letter-spacing: -5px;
+}
+.k10 {
+  letter-spacing: -10px;
+}
+.k13 {
+  letter-spacing: -13px;
+}
 .stendig table td {
   width: 72px;
   height: 44px;
@@ -170,26 +191,40 @@ body.show-about .container {
   text-align: left;
   border-left: 1px solid #000;
   vertical-align: top;
-  letter-spacing: -5px;
   transition: color 300ms ease-in;
-}
-.stendig table td.k3 {
-  letter-spacing: -3px;
-}
-.stendig table td.k10 {
-  letter-spacing: -10px;
-}
-.stendig table td.k13 {
-  letter-spacing: -13px;
-}
-.stendig table:hover td.today {
-  color: #7512ed;
+  letter-spacing: -5px;
 }
 body.dark .stendig table td {
   border-color: #fff;
 }
 body.dark .stendig:hover td.today {
   color: #ed1278;
+}
+@media (max-width: 660px) {
+  .stendig {
+    width: 320px;
+  }
+  .stendig .k10 {
+    letter-spacing: -5px;
+  }
+  .stendig .k13 {
+    letter-spacing: -8px;
+  }
+  .stendig table {
+    width: 320px;
+    font-size: 35px;
+  }
+  .stendig table td {
+    width: 46px;
+    height: 27px;
+    letter-spacing: -3px;
+  }
+  .stendig .year {
+    left: 184px;
+  }
+  .stendig .month {
+    left: 230px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

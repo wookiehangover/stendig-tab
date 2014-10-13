@@ -24,7 +24,6 @@
 
 .stendig table {
   width: 504px;
-
   font-size: 56px;
   border-spacing: 0;
 
@@ -32,35 +31,40 @@
     vertical-align: top;
   }
 
-  td {
-    width: 72px;
-    height: 44px;
-    line-height: 40px;
-    text-align: left;
-    border-left: 1px solid #000;
-    vertical-align: top;
-    letter-spacing: -5px;
-    transition: color 300ms ease-in;
-
-    &.k3 {
-      letter-spacing: -3px;
-    }
-
-    &.k10 {
-      letter-spacing: -10px;
-    }
-
-    &.k13 {
-      letter-spacing: -13px;
-    }
-  }
-
   &:hover td.today {
     color: #7512ed;
   }
 }
 
+// Kerning mixins
+.k3 {
+  letter-spacing: -3px;
+}
 
+.k5 {
+  letter-spacing: -5px;
+}
+
+.k10 {
+  letter-spacing: -10px;
+}
+
+.k13 {
+  letter-spacing: -13px;
+}
+
+.stendig table td {
+  width: 72px;
+  height: 44px;
+  line-height: 40px;
+  text-align: left;
+  border-left: 1px solid #000;
+  vertical-align: top;
+  transition: color 300ms ease-in;
+  .k5;
+}
+
+// Dark Theme
 body.dark .stendig {
   table td {
     border-color: #fff;
@@ -68,5 +72,39 @@ body.dark .stendig {
 
   &:hover td.today {
     color: #ed1278;
+  }
+}
+
+// Responsive Styles
+@media (max-width:660px) {
+  .stendig {
+    width: 320px;
+
+    .k10 {
+      letter-spacing: -5px;
+    }
+
+    .k13 {
+      letter-spacing: -8px;
+    }
+
+    table {
+      width: 320px;
+      font-size: 35px;
+    }
+
+    table td {
+      width: 46px;
+      height: 27px;
+      .k3;
+    }
+
+    .year {
+      left: 184px;
+    }
+
+    .month {
+      left: 230px;
+    }
   }
 }
