@@ -157,6 +157,9 @@ body.show-about .container {
     width: 100%;
     font-size: 1.6em;
   }
+  .gh-pages .about-modal .inner {
+    font-size: 1em;
+  }
 }
 .stendig {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
