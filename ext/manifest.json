@@ -1,6 +1,6 @@
 {
   "name": "Stendig Calendar Tab",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "manifest_version": 2,
   "description": "A tab replacement based on the iconic Stendig Calendar",
   "homepage_url": "https://github.com/wookiehangover/stendig-tab",

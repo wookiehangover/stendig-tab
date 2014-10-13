@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
 },{"../../ext/manifest.json":"/Users/sam/dev/repos/stendig-tab/ext/manifest.json","moment":"/Users/sam/dev/repos/stendig-tab/node_modules/moment/moment.js","react":"/Users/sam/dev/repos/stendig-tab/node_modules/react/react.js","react-stendig-calendar":"/Users/sam/dev/repos/stendig-tab/node_modules/react-stendig-calendar/index.js"}],"/Users/sam/dev/repos/stendig-tab/ext/manifest.json":[function(require,module,exports){
 module.exports={
   "name": "Stendig Calendar Tab",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "manifest_version": 2,
   "description": "A tab replacement based on the iconic Stendig Calendar",
   "homepage_url": "https://github.com/wookiehangover/stendig-tab",

@@ -172,18 +172,6 @@ body.show-about .container {
 .stendig table:hover td.today {
   color: #7512ed;
 }
-.k3 {
-  letter-spacing: -3px;
-}
-.k5 {
-  letter-spacing: -5px;
-}
-.k10 {
-  letter-spacing: -10px;
-}
-.k13 {
-  letter-spacing: -13px;
-}
 .stendig table td {
   width: 72px;
   height: 44px;
@@ -193,6 +181,15 @@ body.show-about .container {
   vertical-align: top;
   transition: color 300ms ease-in;
   letter-spacing: -5px;
+}
+.stendig table td.k3 {
+  letter-spacing: -3px;
+}
+.stendig table td.k10 {
+  letter-spacing: -10px;
+}
+.stendig table td.k13 {
+  letter-spacing: -13px;
 }
 body.dark .stendig table td {
   border-color: #fff;

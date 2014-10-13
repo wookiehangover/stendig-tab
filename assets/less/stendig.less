@@ -36,23 +36,6 @@
   }
 }
 
-// Kerning mixins
-.k3 {
-  letter-spacing: -3px;
-}
-
-.k5 {
-  letter-spacing: -5px;
-}
-
-.k10 {
-  letter-spacing: -10px;
-}
-
-.k13 {
-  letter-spacing: -13px;
-}
-
 .stendig table td {
   width: 72px;
   height: 44px;
@@ -61,8 +44,22 @@
   border-left: 1px solid #000;
   vertical-align: top;
   transition: color 300ms ease-in;
-  .k5;
+  letter-spacing: -5px;
+
+  // Kerning mixins
+  &.k3 {
+    letter-spacing: -3px;
+  }
+
+  &.k10 {
+    letter-spacing: -10px;
+  }
+
+  &.k13 {
+    letter-spacing: -13px;
+  }
 }
+
 
 // Dark Theme
 body.dark .stendig {
@@ -96,7 +93,7 @@ body.dark .stendig {
     table td {
       width: 46px;
       height: 27px;
-      .k3;
+      letter-spacing: -3px;
     }
 
     .year {
