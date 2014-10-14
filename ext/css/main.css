@@ -81,6 +81,9 @@ body.dark {
 .chrome .controls a {
   margin: 1em;
 }
+body.dark .controls a {
+  color: #888;
+}
 body.dark .controls a .svg-icon path,
 body.dark .controls a .svg-icon polygon,
 body.dark .controls a .svg-icon rect {
@@ -88,6 +91,9 @@ body.dark .controls a .svg-icon rect {
 }
 body.dark .controls a .svg-icon circle {
   stroke: #888888;
+}
+body.dark .controls a:hover {
+  color: #eaeaea;
 }
 body.dark .controls a:hover .svg-icon path,
 body.dark .controls a:hover .svg-icon polygon,
