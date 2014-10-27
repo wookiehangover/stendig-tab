@@ -14,6 +14,24 @@ function setTitle() {
   document.title = moment().format('M/D');
 }
 
+function setHighlight(resp) {
+  var highlight = resp.highlight;
+  var checkbox = document.querySelector('input[name="highlight"]');
+
+  if (highlight) {
+    document.body.classList.add('highlight');
+    checkbox.setAttribute('checked', true);
+  }
+
+  checkbox.addEventListener('change', function(e) {
+    chrome.storage.sync.set({
+      highlight: e.currentTarget.checked
+    });
+
+    document.body.classList.toggle('highlight');
+  }, true);
+}
+
 function handleThemeClick() {
   var elem = document.querySelector('.controls .theme');
   elem.addEventListener('click', function(e) {
@@ -64,6 +82,7 @@ getTheme.then(function(theme) {
 
 document.addEventListener('DOMContentLoaded', function() {
   setTitle();
+  chrome.storage.sync.get('highlight', setHighlight);
   renderCalendar();
   updateVersion();
   handleThemeClick();

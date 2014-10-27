@@ -15,6 +15,24 @@ function setTitle() {
   document.title = moment().format('M/D');
 }
 
+function setHighlight(resp) {
+  var highlight = resp.highlight;
+  var checkbox = document.querySelector('input[name="highlight"]');
+
+  if (highlight) {
+    document.body.classList.add('highlight');
+    checkbox.setAttribute('checked', true);
+  }
+
+  checkbox.addEventListener('change', function(e) {
+    chrome.storage.sync.set({
+      highlight: e.currentTarget.checked
+    });
+
+    document.body.classList.toggle('highlight');
+  }, true);
+}
+
 function handleThemeClick() {
   var elem = document.querySelector('.controls .theme');
   elem.addEventListener('click', function(e) {
@@ -65,6 +83,7 @@ getTheme.then(function(theme) {
 
 document.addEventListener('DOMContentLoaded', function() {
   setTitle();
+  chrome.storage.sync.get('highlight', setHighlight);
   renderCalendar();
   updateVersion();
   handleThemeClick();
@@ -74,10 +93,10 @@ document.addEventListener('DOMContentLoaded', function() {
 },{"../../ext/manifest.json":"/Users/sam/dev/repos/stendig-tab/ext/manifest.json","moment":"/Users/sam/dev/repos/stendig-tab/node_modules/moment/moment.js","react":"/Users/sam/dev/repos/stendig-tab/node_modules/react/react.js","react-stendig-calendar":"/Users/sam/dev/repos/stendig-tab/node_modules/react-stendig-calendar/index.js"}],"/Users/sam/dev/repos/stendig-tab/ext/manifest.json":[function(require,module,exports){
 module.exports={
   "name": "Stendig Calendar Tab",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "manifest_version": 2,
   "description": "A tab replacement based on the iconic Stendig Calendar",
-  "homepage_url": "https://github.com/wookiehangover/stendig-tab",
+  "homepage_url": "http://stendigcalendar.website/",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
