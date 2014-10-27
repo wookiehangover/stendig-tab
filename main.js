@@ -16,6 +16,26 @@ function setTitle() {
   document.title = moment().format('M/D') + ' | ' + title;
 }
 
+function setHighlight() {
+  var highlight = localStorage.getItem('highlight');
+  var checkbox = document.querySelector('input[name="highlight"]');
+
+  if (highlight) {
+    document.body.classList.add('highlight');
+    checkbox.setAttribute('checked', true);
+  }
+
+  checkbox.addEventListener('change', function(e) {
+    if (e.currentTarget.checked) {
+      localStorage.setItem('highlight', true);
+    } else {
+      localStorage.removeItem('highlight');
+    }
+
+    document.body.classList.toggle('highlight');
+  }, true);
+}
+
 function handleThemeClick() {
   var elem = document.querySelector('.controls .theme');
   elem.addEventListener('click', function(e) {
@@ -62,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
   updateVersion();
   handleThemeClick();
   handleAboutClick();
+  setHighlight();
 });
 
 },{"../../ext/manifest.json":2,"moment":5,"react":167,"react-stendig-calendar":6}],2:[function(require,module,exports){

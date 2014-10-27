@@ -148,6 +148,15 @@ body.dark .about-modal {
   font-weight: normal;
   font-size: 0.625em;
 }
+.about-modal hr {
+  border: none;
+  border-top: 1px solid #eaeaea;
+  margin: 1em 0;
+}
+.about-modal label input[type="checkbox"] {
+  position: relative;
+  top: -2px;
+}
 body.show-about .about-modal {
   transform: translateY(0);
 }
@@ -200,6 +209,12 @@ body.show-about .container {
 }
 .stendig table:hover td.today {
   color: #7512ed;
+}
+body.highlight .stendig table td.today {
+  color: #7512ed;
+}
+body.dark.highlight .stendig table td.today {
+  color: #ed1278;
 }
 .stendig table td {
   width: 72px;
