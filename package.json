@@ -13,7 +13,8 @@
     "watchify": "^2.0.0"
   },
   "scripts": {
-    "build-gh-pages": "browserify assets/js/pages.js -o main.js",
+    "build-pages": "browserify assets/js/pages.js -o main.js",
+    "watch-pages": "watchify assets/js/pages.js -o main.js -v",
     "build-js": "browserify assets/js/main.js -o ext/js/main.js",
     "watch-js": "watchify assets/js/main.js -o ext/js/main.js -v"
   }

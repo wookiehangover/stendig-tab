@@ -11,7 +11,7 @@ function renderCalendar() {
 }
 
 function setTitle() {
-  document.title = moment().format('M/D');
+  document.title = moment().format('YYYY–M–D');
 }
 
 function setHighlight(resp) {
