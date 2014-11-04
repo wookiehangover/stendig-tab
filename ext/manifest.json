@@ -1,6 +1,6 @@
 {
   "name": "Stendig Calendar Tab",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "manifest_version": 2,
   "description": "A tab replacement based on the iconic Stendig Calendar",
   "homepage_url": "http://stendigcalendar.website/",
@@ -14,5 +14,6 @@
   },
   "permissions": [
     "storage"
-  ]
+  ],
+  "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'"
 }
