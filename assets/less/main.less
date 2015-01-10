@@ -23,6 +23,22 @@ body.dark {
 .container {
   display: flex;
   height: 100%;
+  z-index: 1000;
+  position: relative;
+}
+
+img.bg {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.5;
+  transition: opacity 1s ease-in;
+
+  &.fade-in {
+    opacity: 0;
+  }
 }
 
 @import 'controls';

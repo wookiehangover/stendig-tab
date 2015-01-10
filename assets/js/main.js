@@ -2,13 +2,8 @@ var version = require('../../ext/manifest.json').version;
 var React = require('react');
 var Calendar = require('react-stendig-calendar');
 var moment = require('moment');
-
-function renderCalendar() {
-  React.renderComponent(
-    Calendar({}),
-    document.getElementById('calendar')
-  );
-}
+var setBackground = require('./unsplash-background');
+var setTheme = require('./theme');
 
 function setTitle() {
   document.title = moment().format('YYYY–M–D');
@@ -29,6 +24,30 @@ function setHighlight(resp) {
     });
 
     document.body.classList.toggle('highlight');
+  }, true);
+}
+
+function setUnsplash(resp) {
+  var unsplash = resp.unsplash;
+  var checkbox = document.querySelector('input[name="unsplash"]');
+
+  if (unsplash !== false) {
+    setBackground();
+  } else {
+    checkbox.removeAttribute('checked');
+  }
+
+  checkbox.addEventListener('change', function(e) {
+    var bg;
+    chrome.storage.sync.set({
+      unsplash: e.currentTarget.checked
+    });
+
+    if (e.currentTarget.checked) {
+      setBackground();
+    } else if (bg = document.querySelector('.bg')) {
+      bg.remove();
+    }
   }, true);
 }
 
@@ -64,37 +83,18 @@ function updateVersion() {
   elem.innerText = 'v' + version;
 }
 
-var getTheme = new Promise(function(resolve, reject) {
-  chrome.storage.sync.get('theme', function(item) {
-    resolve(item.theme);
-  });
-  setTimeout(reject, 3000);
-});
-
-getTheme.then(function(theme) {
-  if (theme === 'dark') {
-    document.body.classList.toggle('dark');
-  }
-  setTimeout(function() {
-    document.body.classList.add('ready');
-  }, 1000);
-});
+setTheme();
 
 document.addEventListener('DOMContentLoaded', function() {
+  React.renderComponent(
+    Calendar({}),
+    document.getElementById('calendar')
+  );
+
   setTitle();
   chrome.storage.sync.get('highlight', setHighlight);
-  renderCalendar();
+  chrome.storage.sync.get('unsplash', setUnsplash);
   updateVersion();
   handleThemeClick();
   handleAboutClick();
-});
-
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-27099587-6', 'auto');
-ga('send', 'pageview', {
-  dimension1: 'newtab'
 });
