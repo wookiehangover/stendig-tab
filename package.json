@@ -2,21 +2,24 @@
   "name": "stendig-tab",
   "version": "1.2.0",
   "dependencies": {
-    "browserify": "^8.0.3",
-    "gulp": "^3.8.8",
-    "gulp-less": "^1.3.6",
-    "gulp-sourcemaps": "^1.2.4",
     "lodash": "^2.4.1",
     "moment": "^2.8.3",
     "react": "^0.11.2",
     "react-stendig-calendar": "^0.1.0",
-    "request": "^2.51.0",
-    "watchify": "^2.0.0"
+    "request": "^2.51.0"
   },
   "scripts": {
     "build-pages": "browserify assets/js/pages.js -o main.js",
     "watch-pages": "watchify assets/js/pages.js -o main.js -v",
     "build-js": "browserify assets/js/main.js -o ext/js/main.js",
     "watch-js": "watchify assets/js/main.js -o ext/js/main.js -v"
+  },
+  "devDependencies": {
+    "browserify": "^8.0.3",
+    "gulp": "^3.8.8",
+    "gulp-less": "^1.3.6",
+    "gulp-sourcemaps": "^1.2.4",
+    "imagemin-pngcrush": "^4.0.0",
+    "watchify": "^2.2.1"
   }
 }
