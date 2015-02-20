@@ -86,8 +86,8 @@ function updateVersion() {
 setTheme();
 
 document.addEventListener('DOMContentLoaded', function() {
-  React.renderComponent(
-    Calendar({}),
+  React.render(
+    React.createElement(Calendar, {}),
     document.getElementById('calendar')
   );
 

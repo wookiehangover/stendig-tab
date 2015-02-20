@@ -2,10 +2,11 @@ var version = require('../../ext/manifest.json').version;
 var React = require('react');
 var Calendar = require('react-stendig-calendar');
 var moment = require('moment');
+var setBackground = require('./unsplash-background');
 
 function renderCalendar() {
-  React.renderComponent(
-    Calendar({}),
+  React.render(
+    React.createElement(Calendar, {}),
     document.getElementById('calendar')
   );
 }
@@ -32,6 +33,28 @@ function setHighlight() {
     }
 
     document.body.classList.toggle('highlight');
+  }, true);
+}
+
+function setUnsplash() {
+  var unsplash = localStorage.getItem('unsplash');
+  var checkbox = document.querySelector('input[name="unsplash"]');
+
+  if (unsplash != false) {
+    setBackground();
+  } else {
+    checkbox.removeAttribute('checked');
+  }
+
+  checkbox.addEventListener('change', function(e) {
+    var bg;
+    localStorage.setItem('unsplash', e.currentTarget.checked);
+
+    if (e.currentTarget.checked) {
+      setBackground();
+    } else if (bg = document.querySelector('.bg')) {
+      bg.remove();
+    }
   }, true);
 }
 
@@ -69,7 +92,7 @@ function updateVersion() {
 
 document.addEventListener('DOMContentLoaded', function() {
   var theme = localStorage.getItem('theme');
-  if (theme === 'dark') {
+  if (theme === 'light') {
     document.body.classList.toggle('dark');
   }
   setTimeout(function() {
@@ -82,4 +105,5 @@ document.addEventListener('DOMContentLoaded', function() {
   handleThemeClick();
   handleAboutClick();
   setHighlight();
+  setUnsplash();
 });
