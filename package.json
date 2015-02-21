@@ -6,7 +6,7 @@
     "moment": "^2.8.3",
     "react": "^0.12.2",
     "react-stendig-calendar": "^1.0.0",
-    "superagent": "^0.21.0"
+    "request": "^2.53.0"
   },
   "scripts": {
     "build-pages": "browserify assets/js/pages.js -o main.js",
